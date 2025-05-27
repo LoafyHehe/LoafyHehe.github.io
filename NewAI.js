@@ -1,1 +1,334 @@
-const _0x147b8b=_0x216e;(function(_0x1cad5f,_0x1d53b7){const _0x5eb404=_0x216e,_0x205a83=_0x1cad5f();while(!![]){try{const _0x5d4f9e=-parseInt(_0x5eb404(0x94))/0x1+-parseInt(_0x5eb404(0xa9))/0x2*(parseInt(_0x5eb404(0xa1))/0x3)+-parseInt(_0x5eb404(0xa8))/0x4*(parseInt(_0x5eb404(0xad))/0x5)+-parseInt(_0x5eb404(0x7e))/0x6+-parseInt(_0x5eb404(0xa2))/0x7+parseInt(_0x5eb404(0x8e))/0x8+parseInt(_0x5eb404(0xae))/0x9*(parseInt(_0x5eb404(0x93))/0xa);if(_0x5d4f9e===_0x1d53b7)break;else _0x205a83['push'](_0x205a83['shift']());}catch(_0x2a8718){_0x205a83['push'](_0x205a83['shift']());}}}(_0x2486,0x9d26b));const HUGGINGCHAT_ENDPOINT='https://huggingface.co/chat/conversation',HF_TOKEN=_0x147b8b(0xa3);async function initializeGRODM(){}function _0x2486(){const _0x40e909=['customCSS','5538285gobvYL','14238PvNQPK','querySelector','DOMContentLoaded','innerHTML','textContent','removeItem','backgroundColor','Error:','documentElement','&amp;','style','stringify','scrollTop','&#039;','6411084EvvXoJ','message\x20user','className','&quot;','span','createElement','style[data-custom=\x22true\x22]','#121212','head','.status-indicator','default','getElementById','div','&gt;','remove','entries','4263976ecDMad','setProperty','theme','forEach','replace','26670nVsazA','737699Afltcn','scrollHeight','#1a1a1a','getItem','chat-messages','#9C27B0','error','#03A9F4','application/json','response','trim','#4CAF50','appendChild','444lsulNt','2021054usluSd','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','chatHistory','message-input','value','#f44336','4kBGaRJ','12242mFCnWR','#ffffff','message\x20ai'];_0x2486=function(){return _0x40e909;};return _0x2486();}async function sendMessage(){const _0x177b12=_0x147b8b,_0x3bb31d=document[_0x177b12(0x89)](_0x177b12(0xa5)),_0x2a123f=_0x3bb31d[_0x177b12(0xa6)][_0x177b12(0x9e)]();if(!_0x2a123f)return;const _0x4f22f4=document['getElementById'](_0x177b12(0x98)),_0x378fbb=document['createElement']('div');_0x378fbb[_0x177b12(0x80)]=_0x177b12(0x7f),_0x378fbb['textContent']=_0x2a123f,_0x4f22f4['appendChild'](_0x378fbb),_0x3bb31d[_0x177b12(0xa6)]='';const _0x551471=document[_0x177b12(0x83)](_0x177b12(0x8a));_0x551471['className']='message\x20loading',_0x551471[_0x177b12(0xb2)]='Processing...',_0x4f22f4[_0x177b12(0xa0)](_0x551471);try{const _0x12a006=await fetch('/api/chat',{'method':'POST','headers':{'Content-Type':_0x177b12(0x9c)},'body':JSON[_0x177b12(0x7b)]({'message':_0x2a123f})}),_0xf63cd4=await _0x12a006['json']();_0x551471[_0x177b12(0x8c)]();const _0x4fb506=document[_0x177b12(0x83)](_0x177b12(0x8a));_0x4fb506[_0x177b12(0x80)]=_0x177b12(0xab),_0x4fb506['textContent']=_0xf63cd4[_0x177b12(0x9d)],_0x4f22f4[_0x177b12(0xa0)](_0x4fb506),_0x4f22f4[_0x177b12(0x7c)]=_0x4f22f4[_0x177b12(0x95)];}catch(_0x469fa8){console[_0x177b12(0x9a)](_0x177b12(0xb5),_0x469fa8),_0x551471[_0x177b12(0xb2)]='Error\x20processing\x20request';}}function escapeHtml(_0x39031d){const _0x4526aa=_0x147b8b;return _0x39031d[_0x4526aa(0x92)](/&/g,_0x4526aa(0xb7))[_0x4526aa(0x92)](/</g,'&lt;')['replace'](/>/g,_0x4526aa(0x8b))[_0x4526aa(0x92)](/"/g,_0x4526aa(0x81))['replace'](/'/g,_0x4526aa(0x7d));}function updateStatusIndicator(_0x46f68d,_0x4082e9=!![]){const _0x28cf58=_0x147b8b,_0x5902e8=document[_0x28cf58(0xaf)](_0x28cf58(0x87)),_0x59ab6e=_0x5902e8[_0x28cf58(0xaf)]('.status-dot');_0x5902e8['querySelector'](_0x28cf58(0x82))[_0x28cf58(0xb2)]=_0x46f68d,_0x59ab6e[_0x28cf58(0x7a)][_0x28cf58(0xb4)]=_0x4082e9?_0x28cf58(0x9f):_0x28cf58(0xa7);}function changeTheme(_0x353496){const _0x256a58=_0x147b8b,_0x512a8b=document[_0x256a58(0xb6)],_0x369a45={'default':{'--primary-color':_0x256a58(0x9f),'--secondary-color':'#2196F3','--background-color':_0x256a58(0x96),'--text-color':_0x256a58(0xaa)},'dark':{'--primary-color':_0x256a58(0x99),'--secondary-color':_0x256a58(0x9b),'--background-color':_0x256a58(0x85),'--text-color':'#e0e0e0'}};Object[_0x256a58(0x8d)](_0x369a45[_0x353496])[_0x256a58(0x91)](([_0x13fa2d,_0x2c7563])=>{const _0x17bcef=_0x256a58;_0x512a8b[_0x17bcef(0x7a)][_0x17bcef(0x8f)](_0x13fa2d,_0x2c7563);});}function _0x216e(_0x2792ea,_0x1f598f){const _0x2486ff=_0x2486();return _0x216e=function(_0x216e2a,_0x4bd69c){_0x216e2a=_0x216e2a-0x7a;let _0xfe2b63=_0x2486ff[_0x216e2a];return _0xfe2b63;},_0x216e(_0x2792ea,_0x1f598f);}function applyCustomCSS(){const _0x5a8408=_0x147b8b,_0x2e7c8c=localStorage[_0x5a8408(0x97)](_0x5a8408(0xac));if(_0x2e7c8c){const _0x12fb12=document[_0x5a8408(0x83)]('style');_0x12fb12[_0x5a8408(0xb2)]=_0x2e7c8c,document[_0x5a8408(0x86)][_0x5a8408(0xa0)](_0x12fb12);}}function resetStyles(){const _0x3daeae=_0x147b8b,_0x328240=document[_0x3daeae(0xaf)](_0x3daeae(0x84));_0x328240&&(_0x328240[_0x3daeae(0x8c)](),localStorage['removeItem'](_0x3daeae(0xac)));}function clearChat(){const _0x4dd672=_0x147b8b,_0x3fdc1d=document['getElementById'](_0x4dd672(0x98));_0x3fdc1d['innerHTML']='',localStorage[_0x4dd672(0xb3)](_0x4dd672(0xa4));}function viewChatHistory(){const _0x110314=_0x147b8b,_0x4dd2c5=localStorage[_0x110314(0x97)](_0x110314(0xa4));if(_0x4dd2c5){const _0x3d2551=document[_0x110314(0x89)](_0x110314(0x98));_0x3d2551[_0x110314(0xb1)]=_0x4dd2c5;}}document['addEventListener'](_0x147b8b(0xb0),async()=>{const _0x2d6804=_0x147b8b;await initializeGRODM();const _0x5c3ccc=localStorage[_0x2d6804(0x97)](_0x2d6804(0x90))||_0x2d6804(0x88);changeTheme(_0x5c3ccc),applyCustomCSS(),viewChatHistory();});
+// HuggingFace Configuration
+const HUGGINGCHAT_ENDPOINT = 'https://huggingface.co/chat/conversation';
+const HF_TOKEN = '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';
+
+// Initialize GRODM
+async function initializeGRODM() {
+    // Initialize headers with token
+    const headers = {
+        'Authorization': `Bearer ${HF_TOKEN}`,
+        'Content-Type': 'application/json'
+    };
+    
+    try {
+        // Create new conversation
+        const response = await fetch(HUGGINGCHAT_ENDPOINT, {
+            method: 'POST',
+            headers: headers
+        });
+        
+        if (!response.ok) {
+            throw new Error('Failed to create conversation');
+        }
+        
+        const data = await response.json();
+        // Store conversation ID
+        localStorage.setItem('huggingface_conversation_id', data.id);
+        console.log('Conversation created successfully');
+        updateStatusIndicator('SYSTEM ONLINE', true);
+        
+    } catch (error) {
+        console.error('Failed to initialize chat:', error);
+        updateStatusIndicator('CONNECTION ERROR', false);
+    }
+}
+
+// Send message function
+async function sendMessage() {
+    const input = document.getElementById('message-input');
+    const message = input.value.trim();
+    
+    if (!message) return;
+    
+    // Add message to chat
+    const chat = document.getElementById('chat-messages');
+    const userMessage = document.createElement('div');
+    userMessage.className = 'message user';
+    userMessage.textContent = message;
+    chat.appendChild(userMessage);
+    
+    // Clear input
+    input.value = '';
+    
+    // Add loading indicator
+    const loading = document.createElement('div');
+    loading.className = 'message loading';
+    loading.textContent = 'Processing...';
+    chat.appendChild(loading);
+    
+    try {
+        // Get conversation ID
+        const conversationId = localStorage.getItem('huggingface_conversation_id');
+        if (!conversationId) {
+            throw new Error('No active conversation');
+        }
+
+        // Prepare message data
+        const messageData = {
+            inputs: message,
+            parameters: {
+                max_new_tokens: 100,
+                temperature: 0.7,
+                top_p: 0.9,
+                top_k: 50
+            }
+        };
+
+        // Send message to HuggingFace
+        const response = await fetch(`${HUGGINGCHAT_ENDPOINT}/${conversationId}`, {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${HF_TOKEN}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(messageData)
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to send message');
+        }
+
+        const data = await response.json();
+        
+        // Remove loading indicator
+        loading.remove();
+        
+        // Add AI response
+        const aiMessage = document.createElement('div');
+        aiMessage.className = 'message ai';
+        aiMessage.textContent = data.generated_text;
+        chat.appendChild(aiMessage);
+        
+        // Scroll to bottom
+        chat.scrollTop = chat.scrollHeight;
+        
+    } catch (error) {
+        console.error('Error:', error);
+        loading.textContent = 'Error processing request';
+        updateStatusIndicator('CONNECTION ERROR', false);
+    }
+}
+
+// Utility function to escape HTML
+function escapeHtml(text) {
+    return text
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
+
+// Update status indicator
+function updateStatusIndicator(text, online = true) {
+    const status = document.querySelector('.status-indicator');
+    const dot = status.querySelector('.status-dot');
+    
+    status.querySelector('span').textContent = text;
+    dot.style.backgroundColor = online ? '#4CAF50' : '#f44336';
+}
+
+// Theme management
+function changeTheme(theme) {
+    const root = document.documentElement;
+    const themes = {
+        'default': {
+            '--primary-color': '#4CAF50',
+            '--secondary-color': '#2196F3',
+            '--background-color': '#1a1a1a',
+            '--text-color': '#ffffff'
+        },
+        'dark': {
+            '--primary-color': '#9C27B0',
+            '--secondary-color': '#03A9F4',
+            '--background-color': '#121212',
+            '--text-color': '#e0e0e0'
+        }
+    };
+    
+    Object.entries(themes[theme]).forEach(([property, value]) => {
+        root.style.setProperty(property, value);
+    });
+}
+
+// Custom CSS management
+function applyCustomCSS() {
+    const customCSS = localStorage.getItem('customCSS');
+    if (customCSS) {
+        const style = document.createElement('style');
+        style.textContent = customCSS;
+        document.head.appendChild(style);
+    }
+}
+
+// Reset styles
+function resetStyles() {
+    const customStyle = document.querySelector('style[data-custom="true"]');
+    if (customStyle) {
+        customStyle.remove();
+        localStorage.removeItem('customCSS');
+    }
+}
+
+// Clear chat
+function clearChat() {
+    const chat = document.getElementById('chat-messages');
+    chat.innerHTML = '';
+    localStorage.removeItem('chatHistory');
+    localStorage.removeItem('huggingface_conversation_id');
+    updateStatusIndicator('SYSTEM OFFLINE', false);
+}
+
+// View chat history
+function viewChatHistory() {
+    const history = localStorage.getItem('chatHistory');
+    if (history) {
+        const chat = document.getElementById('chat-messages');
+        chat.innerHTML = history;
+    }
+}
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', async () => {
+    // Initialize GRODM
+    await initializeGRODM();
+    
+    // Apply saved theme
+    const savedTheme = localStorage.getItem('theme') || 'default';
+    changeTheme(savedTheme);
+    
+    // Apply custom CSS
+    applyCustomCSS();
+    
+    // Restore chat history
+    viewChatHistory();
+});
+
+// Focus input on page load
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('message-input').focus();
+});
+
+// Handle Enter key for sending messages
+document.getElementById('message-input').addEventListener('keypress', (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        sendMessage();
+    }
+});
+
+// Handle button click for sending messages
+document.querySelector('.send-button').addEventListener('click', sendMessage);            body: JSON.stringify({ message })
+        });
+        
+        const data = await response.json();
+        
+        // Remove loading indicator
+        loading.remove();
+        
+        // Add AI response
+        const aiMessage = document.createElement('div');
+        aiMessage.className = 'message ai';
+        aiMessage.textContent = data.response;
+        chat.appendChild(aiMessage);
+        
+        // Scroll to bottom
+        chat.scrollTop = chat.scrollHeight;
+    } catch (error) {
+        console.error('Error:', error);
+        loading.textContent = 'Error processing request';
+    }
+}
+
+// Utility function to escape HTML
+function escapeHtml(text) {
+    return text
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
+
+// Update status indicator
+function updateStatusIndicator(text, online = true) {
+    const status = document.querySelector('.status-indicator');
+    const dot = status.querySelector('.status-dot');
+    
+    status.querySelector('span').textContent = text;
+    dot.style.backgroundColor = online ? '#4CAF50' : '#f44336';
+}
+
+// Theme management
+function changeTheme(theme) {
+    const root = document.documentElement;
+    const themes = {
+        'default': {
+            '--primary-color': '#4CAF50',
+            '--secondary-color': '#2196F3',
+            '--background-color': '#1a1a1a',
+            '--text-color': '#ffffff'
+        },
+        'dark': {
+            '--primary-color': '#9C27B0',
+            '--secondary-color': '#03A9F4',
+            '--background-color': '#121212',
+            '--text-color': '#e0e0e0'
+        }
+    };
+    
+    Object.entries(themes[theme]).forEach(([property, value]) => {
+        root.style.setProperty(property, value);
+    });
+}
+
+// Custom CSS management
+function applyCustomCSS() {
+    const customCSS = localStorage.getItem('customCSS');
+    if (customCSS) {
+        const style = document.createElement('style');
+        style.textContent = customCSS;
+        document.head.appendChild(style);
+    }
+}
+
+// Reset styles
+function resetStyles() {
+    const customStyle = document.querySelector('style[data-custom="true"]');
+    if (customStyle) {
+        customStyle.remove();
+        localStorage.removeItem('customCSS');
+    }
+}
+
+// Clear chat
+function clearChat() {
+    const chat = document.getElementById('chat-messages');
+    chat.innerHTML = '';
+    localStorage.removeItem('chatHistory');
+}
+
+// View chat history
+function viewChatHistory() {
+    const history = localStorage.getItem('chatHistory');
+    if (history) {
+        const chat = document.getElementById('chat-messages');
+        chat.innerHTML = history;
+    }
+}
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', async () => {
+    // Initialize GRODM
+    await initializeGRODM();
+    
+    // Apply saved theme
+    const savedTheme = localStorage.getItem('theme') || 'default';
+    changeTheme(savedTheme);
+    
+    // Apply custom CSS
+    applyCustomCSS();
+    
+    // Restore chat history
+    viewChatHistory();
+});
