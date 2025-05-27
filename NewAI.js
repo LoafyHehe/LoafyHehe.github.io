@@ -1,7 +1,6 @@
 // Constants
 const HUGGINGCHAT_ENDPOINT = 'https://huggingface.co/chat/conversation';
 const HF_TOKEN = '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';
-const SERVER_ENDPOINT = '/api/chat';
 
 // Error handling
 function showError(message) {
@@ -19,11 +18,6 @@ function showError(message) {
 // Initialize GRODM
 async function initializeGRODM() {
     try {
-        // Check if running in client-only mode
-        if (window.location.protocol === 'file:') {
-            throw new Error('Client-side execution detected. Please run through a server.');
-        }
-
         // Initialize headers with token
         const headers = {
             'Authorization': `Bearer ${HF_TOKEN}`,
@@ -31,7 +25,7 @@ async function initializeGRODM() {
         };
         
         // Create new conversation
-        const response = await fetch(`${SERVER_ENDPOINT}/init`, {
+        const response = await fetch(HUGGINGCHAT_ENDPOINT, {
             method: 'POST',
             headers: headers
         });
@@ -42,7 +36,7 @@ async function initializeGRODM() {
         }
         
         const data = await response.json();
-        localStorage.setItem('huggingface_conversation_id', data.conversationId);
+        localStorage.setItem('huggingface_conversation_id', data.id);
         updateStatusIndicator('SYSTEM ONLINE', true);
         
     } catch (error) {
@@ -84,8 +78,7 @@ async function sendMessage() {
 
         // Prepare message data
         const messageData = {
-            message: message,
-            conversationId: conversationId,
+            inputs: message,
             parameters: {
                 max_new_tokens: 100,
                 temperature: 0.7,
@@ -94,10 +87,11 @@ async function sendMessage() {
             }
         };
 
-        // Send message through server
-        const response = await fetch(`${SERVER_ENDPOINT}/message`, {
+        // Send message to HuggingFace
+        const response = await fetch(`${HUGGINGCHAT_ENDPOINT}/${conversationId}`, {
             method: 'POST',
             headers: {
+                'Authorization': `Bearer ${HF_TOKEN}`,
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(messageData)
@@ -116,7 +110,7 @@ async function sendMessage() {
         // Add AI response
         const aiMessage = document.createElement('div');
         aiMessage.className = 'message ai';
-        aiMessage.textContent = data.response;
+        aiMessage.textContent = data.generated_text;
         chat.appendChild(aiMessage);
         
         // Scroll to bottom
