@@ -1,35 +1,54 @@
-// HuggingFace Configuration
+// Constants
 const HUGGINGCHAT_ENDPOINT = 'https://huggingface.co/chat/conversation';
 const HF_TOKEN = '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';
+const SERVER_ENDPOINT = '/api/chat';
+
+// Error handling
+function showError(message) {
+    const chat = document.getElementById('chat-messages');
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'message error';
+    errorDiv.innerHTML = `
+        <div class="error-icon">⚠️</div>
+        <div class="error-message">${message}</div>
+    `;
+    chat.appendChild(errorDiv);
+    chat.scrollTop = chat.scrollHeight;
+}
 
 // Initialize GRODM
 async function initializeGRODM() {
-    // Initialize headers with token
-    const headers = {
-        'Authorization': `Bearer ${HF_TOKEN}`,
-        'Content-Type': 'application/json'
-    };
-    
     try {
+        // Check if running in client-only mode
+        if (window.location.protocol === 'file:') {
+            throw new Error('Client-side execution detected. Please run through a server.');
+        }
+
+        // Initialize headers with token
+        const headers = {
+            'Authorization': `Bearer ${HF_TOKEN}`,
+            'Content-Type': 'application/json'
+        };
+        
         // Create new conversation
-        const response = await fetch(HUGGINGCHAT_ENDPOINT, {
+        const response = await fetch(`${SERVER_ENDPOINT}/init`, {
             method: 'POST',
             headers: headers
         });
         
         if (!response.ok) {
-            throw new Error('Failed to create conversation');
+            const errorData = await response.json();
+            throw new Error(errorData.message || 'Failed to create conversation');
         }
         
         const data = await response.json();
-        // Store conversation ID
-        localStorage.setItem('huggingface_conversation_id', data.id);
-        console.log('Conversation created successfully');
+        localStorage.setItem('huggingface_conversation_id', data.conversationId);
         updateStatusIndicator('SYSTEM ONLINE', true);
         
     } catch (error) {
         console.error('Failed to initialize chat:', error);
         updateStatusIndicator('CONNECTION ERROR', false);
+        showError(`Initialization error: ${error.message}`);
     }
 }
 
@@ -65,7 +84,8 @@ async function sendMessage() {
 
         // Prepare message data
         const messageData = {
-            inputs: message,
+            message: message,
+            conversationId: conversationId,
             parameters: {
                 max_new_tokens: 100,
                 temperature: 0.7,
@@ -74,18 +94,18 @@ async function sendMessage() {
             }
         };
 
-        // Send message to HuggingFace
-        const response = await fetch(`${HUGGINGCHAT_ENDPOINT}/${conversationId}`, {
+        // Send message through server
+        const response = await fetch(`${SERVER_ENDPOINT}/message`, {
             method: 'POST',
             headers: {
-                'Authorization': `Bearer ${HF_TOKEN}`,
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(messageData)
         });
 
         if (!response.ok) {
-            throw new Error('Failed to send message');
+            const errorData = await response.json();
+            throw new Error(errorData.message || 'Failed to send message');
         }
 
         const data = await response.json();
@@ -96,7 +116,7 @@ async function sendMessage() {
         // Add AI response
         const aiMessage = document.createElement('div');
         aiMessage.className = 'message ai';
-        aiMessage.textContent = data.generated_text;
+        aiMessage.textContent = data.response;
         chat.appendChild(aiMessage);
         
         // Scroll to bottom
@@ -105,7 +125,7 @@ async function sendMessage() {
     } catch (error) {
         console.error('Error:', error);
         loading.textContent = 'Error processing request';
-        updateStatusIndicator('CONNECTION ERROR', false);
+        showError(`Error: ${error.message}`);
     }
 }
 
